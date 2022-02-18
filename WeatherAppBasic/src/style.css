@@ -1,0 +1,36 @@
+h1 {
+  color: aqua;
+  margin-top: 45px;
+  font-family: "Playfair Display", serif;
+}
+
+section {
+  padding: 20px;
+  margin-top: 40px;
+  border: 1px solid aqua;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 5px;
+}
+
+.week-title {
+  padding-left: 15px;
+  padding-top: 3px;
+}
+
+.week {
+  margin-top: 30px;
+  border: 1px solid violet;
+  border-radius: 4px;
+}
+
+.search-city {
+  margin-top: 50px;
+}
+
+.today {
+  margin-top: 25px;
+  border: 1px solid violet;
+}
