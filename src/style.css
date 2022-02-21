@@ -34,3 +34,7 @@ button {
   margin-top: 25px;
   border: 1px solid violet;
 }
+
+.codedBy {
+  font-size: small;
+}
