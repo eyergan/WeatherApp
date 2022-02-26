@@ -1,18 +1,19 @@
+body {
+  background: #f9f7fe;
+}
+
 h1 {
-  color: aqua;
+  color: rgba(108, 219, 218, 0.7);
   margin-top: 45px;
-  font-family: "Playfair Display", serif;
+  font-family: "Lato", sans-serif;
 }
 
 section {
   padding: 20px;
   margin-top: 40px;
-  border: 1px solid aqua;
-  border-radius: 4px;
-}
-
-button {
-  margin-top: 5px;
+  border-radius: 8px;
+  box-shadow: 0 15px 30px rgb(65 50 100 / 8%);
+  background: white;
 }
 
 .week-title {
@@ -22,8 +23,9 @@ button {
 
 .week {
   margin-top: 30px;
-  border: 1px solid violet;
-  border-radius: 4px;
+  border: 0 px;
+  border-radius: 8px;
+  box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
 }
 
 .search-city {
@@ -32,9 +34,29 @@ button {
 
 .today {
   margin-top: 25px;
-  border: 1px solid violet;
+  border: 0 px;
+  border-radius: 8px;
+  box-shadow: 0 15px 30px rgb(65 50 100 / 8%);
 }
 
 .codedBy {
   font-size: small;
+}
+
+.btn {
+  margin-top: 5px;
+  background: rgba(145, 92, 145, 0.4);
+  border: 0px;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgb(65 50 100 / 8%);
+}
+
+.btn:hover {
+  background-color: rgba(108, 219, 218, 0.7);
+  color: thistle;
+}
+
+.btn:focus {
+  background-color: rgba(108, 219, 218, 0.7);
+  color: thistle;
 }
