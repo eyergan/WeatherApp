@@ -12,25 +12,7 @@ let days = [
   "Saturday",
 ];
 
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-let currentYear = currentTime.getFullYear();
 let currentDay = days[currentTime.getDay()];
-let currentMonth = months[currentTime.getMonth()];
-let currentDate = currentTime.getDate();
 let hours = currentTime.getHours();
 if (hours < 10) {
   hours = `0${hours}`;
@@ -40,7 +22,7 @@ if (exactTime < 10) {
   exactTime = `0${exactTime}`;
 }
 console.log(newDate);
-newDate.innerHTML = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear}, ${hours}:${exactTime}`;
+newDate.innerHTML = `Last updated: ${currentDay}, ${hours}:${exactTime}`;
 
 let apiKey = "719c79f57389bdae3a53f02f543b77e6";
 
@@ -62,5 +44,11 @@ function showTemperature(response) {
   console.log(response);
   let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#tempCF");
+  let descripton = document.querySelector("#description");
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind");
   currentTemp.innerHTML = `${temperature}°`;
+  descripton.innerHTML = response.data.weather[0].description;
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = Math.round(response.data.wind.speed);
 }

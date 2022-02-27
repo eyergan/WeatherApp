@@ -16,6 +16,10 @@ section {
   background: white;
 }
 
+p.card-text:first-letter {
+  text-transform: capitalize;
+}
+
 .week-title {
   padding-left: 15px;
   padding-top: 3px;
