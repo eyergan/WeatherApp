@@ -16,6 +16,10 @@ section {
   background: white;
 }
 
+ul li img {
+  margin-left: 30px;
+}
+
 p.card-text:first-letter {
   text-transform: capitalize;
 }
@@ -30,6 +34,7 @@ p.card-text:first-letter {
   border: 0 px;
   border-radius: 8px;
   box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
+  text-align: center;
 }
 
 .search-city {
@@ -75,4 +80,20 @@ p.card-text:first-letter {
 }
 .today .fLink {
   text-decoration: none;
+}
+
+.weather-forecast-temp {
+  font-weight: 600;
+}
+
+.weather-temp-max {
+  font-size: 14px;
+  font-weight: 300;
+  padding-left: 30px;
+}
+
+.weather-temp-min {
+  font-size: 14px;
+  opacity: 0.5;
+  font-weight: 300;
 }
