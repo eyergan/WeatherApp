@@ -24,6 +24,26 @@ if (exactTime < 10) {
 console.log(newDate);
 newDate.innerHTML = `Last updated: ${currentDay}, ${hours}:${exactTime}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecastList");
+  let forecastHTML = "";
+  let days = ["Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+   <li class="list-group-item weather-forecast-temp">${day}
+                <img src= "http://openweathermap.org/img/wn/03d@2x.png"
+                     alt=""
+                     width= 42/>
+                <span class="weather-temp-max">18°</span>
+                <span class="weather-temp-min">12°</span>
+              </li>
+  `;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let apiKey = "719c79f57389bdae3a53f02f543b77e6";
 
 function search(city) {
@@ -89,3 +109,5 @@ let celsiusLink = document.querySelector("#c-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
 search("Albany");
+
+displayForecast();

@@ -96,4 +96,5 @@ p.card-text:first-letter {
   font-size: 14px;
   opacity: 0.5;
   font-weight: 300;
+  padding-left: 30px;
 }
