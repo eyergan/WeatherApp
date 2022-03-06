@@ -21,7 +21,7 @@ let exactTime = currentTime.getMinutes();
 if (exactTime < 10) {
   exactTime = `0${exactTime}`;
 }
-console.log(newDate);
+
 newDate.innerHTML = `Last updated: ${currentDay}, ${hours}:${exactTime}`;
 
 function formatDay(timestamp) {
@@ -66,7 +66,7 @@ let apiKey = "719c79f57389bdae3a53f02f543b77e6";
 
 function search(city) {
   let apiKey = "719c79f57389bdae3a53f02f543b77e6";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showTemperature);
 }
 
@@ -80,10 +80,8 @@ let clickButton = document.querySelector("form");
 clickButton.addEventListener("submit", handleSubmit);
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "719c79f57389bdae3a53f02f543b77e6";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -101,7 +99,7 @@ function showTemperature(response) {
   currentTemp.innerHTML = Math.round(response.data.main.temp);
   descripton.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = response.data.main.humidity;
-  wind.innerHTML = Math.round(response.data.wind.speed);
+  wind.innerHTML = Math.round(response.data.wind.speed / 1.6);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -110,30 +108,5 @@ function showTemperature(response) {
 
   getForecast(response.data.coord);
 }
-
-function showFahrenheitTemp(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#tempCF");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-}
-
-function showCelsiusTemp(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#tempCF");
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  temperatureElement.innerHTML = Math.round(celciusTemp);
-}
-
-let celciusTemp = null;
-
-let fahrenheitLink = document.querySelector("#f-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp);
-
-let celsiusLink = document.querySelector("#c-link");
-celsiusLink.addEventListener("click", showCelsiusTemp);
 
 search("Albany");

@@ -70,16 +70,8 @@ p.card-text:first-letter {
   color: thistle;
 }
 
-.today .active {
-  color: rgb(33, 33, 33);
-  cursor: default;
-}
-
-.today .cLink {
-  text-decoration: none;
-}
-.today .fLink {
-  text-decoration: none;
+.tempF {
+  font-size: 30px;
 }
 
 .weather-forecast-temp {
