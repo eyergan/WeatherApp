@@ -24,23 +24,40 @@ if (exactTime < 10) {
 console.log(newDate);
 newDate.innerHTML = `Last updated: ${currentDay}, ${hours}:${exactTime}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecastList");
   let forecastHTML = "";
-  let days = ["Thu", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-   <li class="list-group-item weather-forecast-temp">${day}
-                <img src= "http://openweathermap.org/img/wn/03d@2x.png"
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+   <li class="list-group-item weather-forecast-temp">${formatDay(
+     forecastDay.dt
+   )}
+                <img src= "http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
                      alt=""
                      width= 42/>
-                <span class="weather-temp-max">18°</span>
-                <span class="weather-temp-min">12°</span>
+                <span class="weather-temp-max">${Math.round(
+                  forecastDay.temp.max
+                )}°</span>
+                <span class="weather-temp-min">${Math.round(
+                  forecastDay.temp.min
+                )}°</span>
               </li>
   `;
+    }
   });
   forecastElement.innerHTML = forecastHTML;
 }
